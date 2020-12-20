@@ -1,0 +1,31 @@
+<form (submit)="submit()" [formGroup]="feedbackForm" class="feedback-form">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      placeholder="Your name"
+      formControlName="name"
+      type="text"
+    />
+    <mat-error *ngIf="controls.name.touched && controls.name.invalid">
+      <ng-container *ngIf="controls.name.errors.required">
+        Name is required.
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Message</mat-label>
+    <textarea matInput formControlName="message"></textarea>
+    <mat-error *ngIf="controls.message.touched && controls.message.invalid">
+      <ng-container *ngIf="controls.message.errors.required">
+        Message is required
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <button mat-flat-button color="primary">Send</button>
+    <a routerLink="/" type="button" style="margin-left: 8px;" mat-flat-button color="primary">Register</a>
+  </div>
+</form>
+

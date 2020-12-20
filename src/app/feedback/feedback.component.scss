@@ -1,0 +1,11 @@
+.feedback-form {
+  border: 1px solid #2273b1;
+  border-radius: 6px;
+  margin: auto;
+  min-width: 600px;
+  padding: 16px;
+
+  mat-form-field {
+    width: 100%;
+  }
+}

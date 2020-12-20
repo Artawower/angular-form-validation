@@ -1,0 +1,36 @@
+<form (submit)="submit()" [formGroup]="registrationForm" class="register-form">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      placeholder="some@email.com"
+      formControlName="email"
+      type="email"
+    />
+    <mat-error *ngIf="controls.email.touched && controls.email.invalid">
+      <ng-container *ngIf="controls.email.errors.required">
+        Email is required.
+      </ng-container>
+      <ng-container *ngIf="controls.email.errors.email">
+        Please, enter valid email
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input matInput formControlName="password" />
+    <mat-error *ngIf="controls.password.touched && controls.password.invalid">
+      <ng-container *ngIf="controls.password.errors.required">
+        Password is required.
+      </ng-container>
+      <ng-container *ngIf="controls.password.errors.minlength">
+        Password should container 8 chars
+      </ng-container>
+    </mat-error>
+  </mat-form-field>
+
+  <div>
+    <button type="submit" mat-flat-button color="primary">Submit</button>
+    <a routerLink="/feedback" type="button" style="margin-left: 8px;" mat-flat-button color="primary">Feedback</a>
+  </div>
+</form>
